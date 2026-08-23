@@ -1,6 +1,7 @@
 export const SITE = {
   website: "https://kamaldhingra1.github.io/me-new/",
   author: "Kamal Dhingra",
+  base: "/",
   profile: process.env.PUBLIC_SOCIAL_GITHUB ?? "", // set in .env
   desc: "Cyber, AI Security Architecture & Beyond",
   title: "Safe and Secure AI",
@@ -27,6 +28,8 @@ export const SITE = {
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
+  outDir: './dist',
+  output: "static",
   lang: "en", // html lang code. Set this empty and default will be "en"
   timezone: "America/Guatemala", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   introAudio: {
