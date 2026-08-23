@@ -2,7 +2,7 @@
 .github/copilot-instructions.md
 
 # build output
-dist/
+# dist/
 
 # generated types
 .astro/
