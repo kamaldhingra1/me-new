@@ -16,7 +16,6 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -32,50 +31,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            echo "lockfile=yarn.lock" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npm run" >> $GITHUB_OUTPUT
-            echo "lockfile=package-lock.json" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9  # Update this to your project's specific pnpm version if needed
           
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+          node-version: "20" # Reverted to standard stable LTS Node 20 as requested 
+          cache: "pnpm"
+          cache-dependency-path: "**/pnpm-lock.yaml" # Glob path pattern resolves caching bugs
           
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
         
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
         
-      # This step now properly triggers your package.json build script (astro build && pagefind)
-      # It passes your GitHub Pages URL configs dynamically via environment variables
-      # Make sure your astro.config.mjs is ready to read them if necessary, or let Pagefind index natively
+      # Triggers your package.json build script natively via pnpm
       - name: Build with Astro and Pagefind
-        run: |
-          ${{ steps.detect-package-manager.outputs.runner }} build
+        run: pnpm build
         working-directory: ${{ env.BUILD_PATH }}
         
-      # Uploads the entire compiled dist folder (which includes /pagefind/)
+      # Uploads the entire compiled dist folder
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
