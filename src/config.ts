@@ -1,7 +1,6 @@
 export const SITE = {
-  website: "https://kamaldhingra1.github.io",
+  website: "https://kamaldhingra1.github.io/me-new",
   author: "Kamal Dhingra",
-  base: "me-new",
   profile: process.env.PUBLIC_SOCIAL_GITHUB ?? "", // set in .env
   desc: "Cyber, AI Security Architecture & Beyond",
   title: "Safe and Secure AI",
