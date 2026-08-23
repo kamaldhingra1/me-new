@@ -1,0 +1,122 @@
+---
+import type { ImageMetadata } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import GalleryCard from "@/components/GalleryCard.astro";
+import { SITE } from "@/config";
+import { getGallerySlug } from "@/utils/contentEntry";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+if (!SITE.showGalleries) {
+  return Astro.redirect("/404");
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Load all images from all galleries at build-time
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/data/galleries/**/*.{jpg,jpeg,png,webp,avif,gif,JPG,JPEG,PNG,WEBP}",
+  { eager: true }
+);
+
+// Get images from a specific gallery
+function getGalleryImages(slug: string): ImageMetadata[] {
+  return Object.entries(allImages)
+    .filter(
+      ([path]) =>
+        path.startsWith(`/src/data/galleries/${lang}/${slug}/`) &&
+        !path.endsWith("index.md") &&
+        !path.endsWith("index.mdx")
+    )
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, mod]) => mod.default);
+}
+
+const rawGalleries = await getCollection(
+  "galleries",
+  ({ id, data }) => !data.draft && id.startsWith(`${lang}/`)
+);
+
+const galleries = rawGalleries
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDatetime).getTime() -
+      new Date(a.data.pubDatetime).getTime()
+  )
+  .map(gallery => {
+    const slug = getGallerySlug(gallery.id);
+    const folderImages = getGalleryImages(slug);
+    return {
+      gallery,
+      slug,
+      fallbackImage: folderImages[0],
+      imageCount: folderImages.length,
+    };
+  });
+---
+
+<Layout title={`${t("nav.galleries")} | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <main id="main-content" class="app-layout pb-12">
+    <!-- Hero -->
+    <div class="archive-hero" data-archive-hero>
+      <div class="aurora-orb aurora-orb-1"></div>
+      <div class="aurora-orb aurora-orb-2"></div>
+      <div class="aurora-orb aurora-orb-3"></div>
+      <div class="aurora-mouse" data-archive-mouse></div>
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          <span class="glow-text">{t("nav.galleries")}</span>
+        </h1>
+        <p class="mt-3 max-w-lg text-foreground/70 italic">
+          {t("galleries.desc")}
+        </p>
+        <div class="mt-4 flex flex-wrap items-center gap-2">
+          <span class="hero-badge"
+            >{galleries.length}
+            {
+              galleries.length === 1
+                ? t("galleries.count")
+                : t("galleries.counts")
+            }</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery grid -->
+    {
+      galleries.length === 0 ? (
+        <p class="mt-12 text-center text-foreground/50 italic">
+          {t("galleries.empty")}
+        </p>
+      ) : (
+        <ul
+          class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          role="list"
+        >
+          {galleries.map(
+            ({ gallery, slug, fallbackImage, imageCount }, index) => (
+              <li>
+                <GalleryCard
+                  gallery={gallery}
+                  slug={slug}
+                  fallbackImage={fallbackImage}
+                  imageCount={imageCount}
+                  loading={index < 3 ? "eager" : "lazy"}
+                />
+              </li>
+            )
+          )}
+        </ul>
+      )
+    }
+  </main>
+  <Footer />
+</Layout>
