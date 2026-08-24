@@ -18,6 +18,10 @@ import Callout from '@/components/Callout.astro';
 import ArchitectureNote from '@/components/ArchitectureNote.astro';
 import ArchitectureNote2 from '@/components/ArchitectureNote2.astro';
 import exampleImage from "@/assets/images/posts/satf/satf-baseline-1-framework.png";
+import lifecycleImg from "@/assets/images/posts/satf/trust_lifecycle.png";
+import trustplaneImg from "@/assets/images/posts/satf/concept_trust_plane.png";
+import crosscuttingImg from "@/assets/images/posts/satf/crosscutting_control_plane.png";
+import responseImg from "@/assets/images/posts/satf/response_plane.png";
 
 
 <ArchitectureNote title="Series Navigation" type="info">
@@ -109,7 +113,7 @@ SATF starts with the trust lifecycle because trust is dynamic.
 
 <Callout type="Sol">
             **Establish → Enforce → Validate → Reassess → Adapt → Contain / Re-establish**
-<img src="/src/assets/images/posts/satf/trust_lifecycle.png" alt="SATF Trust Lifecycle" class="w-full h-auto rounded-xl" />
+<img src={lifecycleImg.src} alt="SATF Trust Lifecycle" class="w-full h-auto rounded-xl" />
 </Callout>
 
 <ArchitectureNote2 type="insight" title="SATF Provides">
@@ -130,7 +134,7 @@ SATF is organized into three coordinated views.
 
 The conceptual trust plane defines what must be true for an agent to be trusted.
 
-<img src="/src/assets/images/posts/satf/concept_trust_plane.png" alt="Conceptual Trust Plane" class="w-full h-auto rounded-xl" />
+<img src={trustplaneImg.src} alt="Conceptual Trust Plane" class="w-full h-auto rounded-xl" />
 <Callout type="tip">
 It contains:
 
@@ -143,7 +147,7 @@ It contains:
 ## 2. Cross-Cutting Control Plane
 
 Governance, Telemetry, and Assurance span all trust rings.
-<img src="/src/assets/images/posts/satf/crosscutting_control_plane.png" alt="Cross-Cutting Control Plane" class="w-full h-auto rounded-xl" />
+<img src={crosscuttingImg.src} alt="Cross-Cutting Control Plane" class="w-full h-auto rounded-xl" />
 
 This plane continuously ingests telemetry, assurance findings, audit results, policy exceptions, risk changes, and validation evidence. It then feeds machine-enforceable adaptive policies into Ring 2 Policy Decision Points.
 
@@ -155,7 +159,7 @@ SATF separates responsibilities. Ring 3 produces validation evidence. The cross-
 
 The runtime and response plane is the operational surface where the framework is applied.
 
-<img src="/src/assets/images/posts/satf/response_plane.png" alt="Runtime & Response Plane" class="w-full h-auto rounded-xl" />
+<img src={responseImg.src}alt="Runtime & Response Plane" class="w-full h-auto rounded-xl" />
 
 <Callout type="Sol">
 It includes:
