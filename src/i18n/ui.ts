@@ -11,7 +11,7 @@ export const ui = {
     "nav.tags": "Tags",
     "nav.about": "About",
     "nav.search": "Search",
-    "nav.archives": "Archives",
+    "nav.archives": "Agentic Security Explorer (ASE)",
     "nav.galleries": "Galleries",
     "nav.shortcuts": "Shortcuts",
     "nav.changeAccent": "Change accent color",
@@ -58,7 +58,7 @@ export const ui = {
     "galleries.photos": "photos",
     "galleries.collection": "Collection",
     "galleries.noImages": "This gallery has no images yet.",
-    "archives.title": "Archive",
+    "archives.title": "Agentic Security Explorer (ASE)",
     "archives.desc":
       "A journey through everything I've published, organized over time.",
     "archives.posts": "posts",

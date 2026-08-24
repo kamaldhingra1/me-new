@@ -278,7 +278,9 @@ const isActive = (path: string) => {
                     {
                       SITE.showArchives && (
                         <a
-                          href={locale === "es" ? "/es/archives" : "/archives"}
+             
+                          href={`https://ase.${Astro.site?.host}`}
+                         
                           class:list={[
                             "popover-link",
                             { "popover-link-active": isActive("/archives") },
