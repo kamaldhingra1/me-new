@@ -118,6 +118,7 @@ export const ui = {
     "nav.posts": "Publicaciones",
     "nav.tags": "Etiquetas",
     "nav.about": "Sobre mí",
+    "nav.ase": "Sobre mí",
     "nav.search": "Buscar",
     "nav.archives": "Archivo",
     "nav.galleries": "Galerías",
