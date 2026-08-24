@@ -157,7 +157,13 @@ const isActive = (path: string) => {
                 >{t("nav.about")}</a
               >
             </li>
-
+            <li>
+              <a
+                href={`https://ase.${Astro.site?.host}`}
+                class:list={["nav-link", { "nav-active": isActive("/about") }]}
+                >{t("nav.ase")}</a
+              >
+            </li>
             <!-- Separator -->
             <li class="flex items-center px-1" aria-hidden="true">
               <div class="h-4 w-px bg-border/30"></div>

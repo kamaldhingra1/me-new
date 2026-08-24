@@ -10,6 +10,7 @@ export const ui = {
     "nav.posts": "Posts",
     "nav.tags": "Tags",
     "nav.about": "About",
+    "nav.ase": "ASE",
     "nav.search": "Search",
     "nav.archives": "Agentic Security Explorer (ASE)",
     "nav.galleries": "Galleries",
