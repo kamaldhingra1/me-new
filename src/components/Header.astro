@@ -160,7 +160,7 @@ const isActive = (path: string) => {
             <li>
               <a
                 href={`https://ase.${Astro.site?.host}`}
-                class:list={["nav-link", { "nav-active": isActive("/about") }]}
+                class:list={["nav-link", { "nav-active": isActive("/ase") }]} target="_blank"
                 >{t("nav.ase")}</a
               >
             </li>
@@ -286,7 +286,7 @@ const isActive = (path: string) => {
                         <a
              
                           href={`https://ase.${Astro.site?.host}`}
-                         
+                         target="_blank"
                           class:list={[
                             "popover-link",
                             { "popover-link-active": isActive("/archives") },

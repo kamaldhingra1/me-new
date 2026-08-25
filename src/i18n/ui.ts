@@ -35,7 +35,7 @@ export const ui = {
     "index.featured": "Featured",
     "index.recent": "Recent",
     "index.exploreAll": "Explore all posts",
-    "posts.title": "Posts",
+    "posts.title": "Thoughts on AI Security Architecture & Agentic Security",
     "posts.desc": "All the articles I have published.",
     "posts.emptyTitle": "No posts yet",
     "posts.emptyDesc": "Come back later to read our upcoming articles.",
