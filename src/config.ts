@@ -1,7 +1,7 @@
 export const SITE = {
   website: "https://astro.kamaldhingra.com",
   author: "Kamal Dhingra",
-  profile: process.env.PUBLIC_SOCIAL_GITHUB ?? "", // set in .env
+  profile: process.env.PUBLIC_SOCIAL_LINKEDIN ?? "", // set in .env
   desc: "Cyber, AI Security Architecture & Beyond",
   title: "Safe and Secure AI",
   ogImage: "devosfera-og.webp", // located in the public folder
