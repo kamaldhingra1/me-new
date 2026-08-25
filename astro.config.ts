@@ -15,6 +15,10 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  redirects: {
+    '/posts/satf': '/posts',
+    '/posts/satf/secure-agent-trust-framework-part4': '/posts/satf/part-4-inside-satf' ,
+    },
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
