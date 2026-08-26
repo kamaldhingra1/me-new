@@ -20,14 +20,14 @@ import ArchitectureNote2 from '@/components/ArchitectureNote2.astro';
 import exampleImage from "@/assets/images/posts/satf/part2-trust-is-not-granted-once.png";
 
 
-<ArchitectureNote title="Series Navigation" type="info">
+<ArchitectureNote2 title="Series Navigation" type="info">
 This is Part 2 of 4 in the Secure Agent Trust Framework series.
 
 - <a href="https://www.kamaldhingra.com/posts/satf/secure-agent-trust-framework-part1/">Part 1: The Agent Trust Gap</a> 
 - Part 2: Trust Is Not Granted Once <span style="font-size: 1.5em; line-height: 1;">👇</span>
 - <a href="https://www.kamaldhingra.com/posts/satf/secure-agent-trust-framework-part3/">Part 3: Introducing the Secure Agent Trust Framework (SATF)</a>
 - Part 4: Inside SATF
-</ArchitectureNote>
+</ArchitectureNote2>
 
 # Secure Agent Trust Framework (SATF) Series- Part 2: Trust Is Not Granted Once
 
@@ -47,21 +47,21 @@ Autonomous AI agents change the enterprise trust problem. They do not simply aut
 Traditional IAM and Zero Trust are necessary, but not sufficient. Agent trust must be dynamic, contextual, observable, and continuously reassessed.
 
 
-<ArchitectureNote2 type="insight" title="SATF Provides">
+<ArchitectureNote2 type="insight2" title="SATF Provides">
 Trust is not a permission. Trust is a dynamic state that can increase, decay, or be revoked based on evidence.
 </ArchitectureNote2>
 
+---
 ## The shift from applications to agents
 
 Traditional applications execute predefined logic. APIs expose known operations. Human users initiate requests and remain accountable for their actions.
 
-Agents are different.
+<Callout type="tip" title="Agents are different">
+An agent may receive an open-ended goal, reason through a plan, choose tools, read or update memory, query RAG systems, invoke APIs, delegate subtasks, and communicate externally. A simple user request can become a chain of autonomous actions across systems, data stores, models, and other agents.
+</Callout>
 
-> An agent may receive an open-ended goal, reason through a plan, choose tools, read or update memory, query RAG systems, invoke APIs, delegate subtasks, and communicate externally. A simple user request can become a chain of autonomous actions across systems, data stores, models, and other agents.
 
-That changes the security question from:
-
-<Callout type="danger">
+<Callout type="danger" title="That changes the security question from:">
 Does this identity have permission?
 
 to:
@@ -69,40 +69,50 @@ to:
 Should this agent be allowed to perform this action, for this goal, in this context, right now?
 </Callout>
 
+---
 ## Why identity alone is insufficient
 
 Identity remains foundational. Every agent needs a strong identity, attributable actions, scoped credentials, and lifecycle governance. But identity only answers who is acting.
 
-Agent trust also needs to answer:
 
+
+<Callout type="danger" title="Agent trust also needs to answer:">
 - What is the agent trying to accomplish?
 - Who delegated the task?
 - What goal is being optimized?
 - What tools, data, memory, and external channels are involved?
 - Has the agent deviated from the approved objective?
 - Should the action be allowed, constrained, escalated, or contained?
-
+</Callout>
 <ArchitectureNote title="Identity Is Not Trust" type="warning">
 Identity answers who is acting. Trust asks whether the current action should be allowed under the current goal, context, risk, and behavior.
 </ArchitectureNote>
 
+---
 ## Trust decay
 
 Trust can decay when new evidence appears:
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+<div class="rounded-xl border border-red-300/70  p-4 dark:border-sky-500/40 dark:bg-sky-950/25">
+    - anomalous behavior,
+    - excessive delegation,
+    - unsafe tool usage,
+    - goal drift,
+    - policy violations,
+</div>
+<div class="rounded-xl border border-red-300/70  p-4 dark:border-lime-500/40 dark:bg-lime-950/25">
+    - memory contamination,
+    - failed assurance checks,
+    - privilege escalation attempts,
+    - supply chain alerts.
+</div>
+</div>
 
-- anomalous behavior,
-- excessive delegation,
-- unsafe tool usage,
-- goal drift,
-- policy violations,
-- memory contamination,
-- failed assurance checks,
-- privilege escalation attempts,
-- supply chain alerts.
-
-<Callout type="Sol">
+<Callout type="Sol" title="Complete Lifecycle">
 **As trust decays, enforcement should move from allow to constrain, step-up review, monitor, contain, or revoke.**
 </Callout>
+
+---
 ## Where SATF comes in
 
 <a href="https://github.com/kamaldhingra1/secure-agent-trust-framework" target="_blank">The Secure Agent Trust Framework (SATF)</a> is a vendor-neutral framework for trusted autonomous actions and secure agentic outputs.

@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type?: 'note' | 'tip' | 'warning' | 'danger' | 'intro' | 'Exe' | 'Sol';
+  type?: 'note' | 'tip' | 'warning' | 'danger' | 'intro' | 'Exe' | 'Sol' | 'Sol2';
   title?: string;
 }
 
@@ -34,6 +34,11 @@ const typeStyles = {
   Sol: {
     bg: ' border-green-400 text-green-800',
    //   bg: 'bg-green-50 border-green-400 text-green-800',
+    icon: '🚀'
+  },
+    Sol2: {
+    //bg: ' border-green-400 text-green-800',
+    bg: 'bg-green-50 border-green-400 text-green-800',
     icon: '🚀'
   }
 };

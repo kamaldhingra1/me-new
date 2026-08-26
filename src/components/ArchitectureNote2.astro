@@ -13,7 +13,7 @@
  */
 
 export interface Props {
-  type?: 'insight' | 'info' | 'warning' | 'success' | 'danger' | 'note';
+  type?: 'insight' |  'insight2'| 'info' | 'warning' | 'success' | 'danger' | 'note';
   title?: string;
 }
 
@@ -27,6 +27,14 @@ const variants = {
     label: 'Insight',
     icon: '✦',
     wrapper: 'border-violet-300/80 bg-violet-50/80 dark:border-violet-500/40 dark:bg-violet-950/30',
+    badge: 'bg-violet-100 text-violet-800 dark:bg-violet-900/70 dark:text-violet-200',
+    title: 'text-violet-950 dark:text-violet-100',
+    iconWrap: 'bg-violet-600 text-white dark:bg-violet-500',
+  },
+  insight2: {
+    label: 'Insight',
+    icon: '✦',
+    wrapper: 'border-violet-300/80  dark:border-violet-500/40 dark:bg-violet-950/30',
     badge: 'bg-violet-100 text-violet-800 dark:bg-violet-900/70 dark:text-violet-200',
     title: 'text-violet-950 dark:text-violet-100',
     iconWrap: 'bg-violet-600 text-white dark:bg-violet-500',
@@ -66,7 +74,7 @@ const variants = {
     iconWrap: 'bg-rose-600 text-white dark:bg-rose-500',
   },
   note: {
-    label: 'Architecture Note',
+    label: 'Note',
     icon: '•',
     wrapper: 'border-slate-300/80 bg-slate-50/80 dark:border-slate-600/50 dark:bg-slate-900/50',
     badge: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200',

@@ -24,19 +24,19 @@ import crosscuttingImg from "@/assets/images/posts/satf/crosscutting_control_pla
 import responseImg from "@/assets/images/posts/satf/response_plane.png";
 
 
-<ArchitectureNote title="Series Navigation" type="info">
+<ArchitectureNote2 title="Series Navigation" type="info">
 This is Part 3 of 4 in the Secure Agent Trust Framework series.
 
 - <a href="https://www.kamaldhingra.com/posts/satf/secure-agent-trust-framework-part1/">Part 1: The Agent Trust Gap</a> 
 - <a href="https://www.kamaldhingra.com/posts/satf/secure-agent-trust-framework-part2/">Part 2: Trust Is Not Granted Once </a>
 - Part 3: Introducing the Secure Agent Trust Framework (SATF)<span style="font-size: 1.5em; line-height: 1;">👇</span>
 - Part 4: Inside SATF
-</ArchitectureNote>
+</ArchitectureNote2>
 
 # Secure Agent Trust Framework (SATF) Series- Part 3: Introducing the Secure Agent Trust Framework (SATF)
 
 ## End-to-End Enterprise Framework for Autonomous Agent Governance and Contextual Security, Trusted Autonomous actions and secure outputs.
-### Safe, Trusted, Compliant, Resilient, and Expected Outcomes
+### Safe, Trusted, Compliant, Resilient, and Expected Outcomes =>
 
 
   <img 
@@ -51,8 +51,7 @@ The Secure Agent Trust Framework, or SATF, is an end-to-end enterprise framework
 
 SATF is a vendor-neutral framework for establishing, enforcing, validating, reassessing, adapting, and revoking trust in autonomous agent systems to ensure trusted and secure output.
 
-The core premise is simple:
-<Callout type="Sol">
+<Callout type="Sol" title="The core premise is simple:">
 Trust is not granted once. Trust is established, enforced, validated, reassessed, adapted, and revoked when needed.
 </Callout>
 ---
@@ -62,27 +61,26 @@ Traditional security frameworks focus on securing identities, access, resources,
 
 Autonomous agents introduce a different challenge.
 
-<Callout type="Exe">
+<Callout type="Exe" title="The Objective:">
 The fundamental objective is no longer simply protecting access.
 
 **The objective is ensuring that autonomous agents consistently produce secure outcomes.**
 </Callout>
 
-<Callout type="Sol">
-SATF helps organizations achieve:
+
+<ArchitectureNote type="success" title="SATF helps organizations achieve:">
 
 - Safe Outcomes ✅
 - Trusted Outcomes ✅
 - Compliant Outcomes ✅
 - Resilient Outcomes ✅
 - Expected Outcomes ✅
-</Callout>
+</ArchitectureNote>
 ---
 
 ## What Is a Secure Outcome?
 
-<ArchitectureNote2 type="success">
-A secure outcome is:
+<ArchitectureNote2 type="success" title="A secure outcome is:">
 
 - The right action ->
 - Performed by the right agent ->
@@ -99,24 +97,26 @@ SATF continuously evaluates trust throughout the agent lifecycle to ensure that 
 
 ## SATF Core Principle
 
-<ArchitectureNote2 type="insight">
-The controls are not the goal.
+<ArchitectureNote2 type="insight2" title="Core Principal & Goal">
+ - The controls are not the goal.
 
-**Secure outcomes are the goal.**
+ - **Secure outcomes are the goal.**
 </ArchitectureNote2>
 
  SATF exists to ensure autonomous agents consistently produce safe, trusted, compliant, resilient, and expected outcomes, even when objectives evolve, context changes, authority is delegated, tools expand, threats emerge, and trust must be continuously reassessed.
 
+---
 ## SATF Trust Lifecycle
 
 SATF starts with the trust lifecycle because trust is dynamic.
 
-<Callout type="Sol">
+<Callout type="Sol" title="Trust Lifecycle">
             **Establish → Enforce → Validate → Reassess → Adapt → Contain / Re-establish**
-<img src={lifecycleImg.src} alt="SATF Trust Lifecycle" class="w-full h-auto rounded-xl" />
 </Callout>
+<img src={lifecycleImg.src} alt="SATF Trust Lifecycle" class="w-full h-auto rounded-xl" width="100%" />
 
-<ArchitectureNote2 type="insight" title="SATF Provides">
+
+<ArchitectureNote2 type="insight2" title="SATF Provides">
 Trust is not a binary switch. Trust is a lifecycle with state, evidence, decay, adaptation, and recovery.
 </ArchitectureNote2>
 
@@ -124,7 +124,7 @@ Trust is not a binary switch. Trust is a lifecycle with state, evidence, decay, 
 ## SATF - Three coordinated views
 
 SATF is organized into three coordinated views.
-<Callout type="Sol">
+<Callout type="Sol" title="SATF Three Views">
 1. The conceptual trust model [Core Agent Trust Fabric, Trust Rings -> Establish, Enforce, Validate]
 2. The cross-cutting control plane [Governance and Assurance across all trust rings]
 3. The runtime and response plane [Operational surface for framework application]
@@ -135,8 +135,7 @@ SATF is organized into three coordinated views.
 The conceptual trust plane defines what must be true for an agent to be trusted.
 
 <img src={trustplaneImg.src} alt="Conceptual Trust Plane" class="w-full h-auto rounded-xl" />
-<Callout type="tip">
-It contains:
+<Callout type="tip" title="It contains:">
 
 - **Core: Agent Trust Fabric**. --> This is the decision (dynamic evaluation) engine for autonomous trust.
 - **Ring 1: Trust Establishment**. --> create a secure starting posture before agent execution.
@@ -151,9 +150,15 @@ Governance, Telemetry, and Assurance span all trust rings.
 
 This plane continuously ingests telemetry, assurance findings, audit results, policy exceptions, risk changes, and validation evidence. It then feeds machine-enforceable adaptive policies into Ring 2 Policy Decision Points.
 
-<ArchitectureNote title="Validation Discovers, Governance Decides, Enforcement Applies" type="info">
-SATF separates responsibilities. Ring 3 produces validation evidence. The cross-cutting control plane turns evidence into adaptive policy. Ring 2 enforces the policy at runtime.
-</ArchitectureNote>
+<ArchitectureNote2 title="Validation Discovers, Governance Decides, Enforcement Applies" type="info">
+ - SATF separates responsibilities. 
+
+ - Ring 3 produces validation evidence. 
+
+ - The cross-cutting control plane turns evidence into adaptive policy. 
+
+ - Ring 2 enforces the policy at runtime.
+</ArchitectureNote2>
 
 ## 3. Runtime and Response Plane
 
@@ -161,8 +166,7 @@ The runtime and response plane is the operational surface where the framework is
 
 <img src={responseImg.src}alt="Runtime & Response Plane" class="w-full h-auto rounded-xl" />
 
-<Callout type="Sol">
-It includes:
+<Callout type="Sol" title="It includes:">
 
 - Runtime Agent Ecosystem,
 - Response and Containment,
@@ -178,8 +182,11 @@ SATF is not just an identity model, a threat model, or a governance checklist.
 
 It combines all three into an operating framework for trusted and secure outcomes:
 
-<ArchitectureNote2 type="insight">
-**Trust lifecycle + Trust fabric + Trust rings + Control plane + Runtime response --> Secure Outcomes**
+<ArchitectureNote2 type="insight2">
+  Trust lifecycle + Trust fabric + Trust rings 
+                +
+    Control plane + Runtime response 
+      --> Secure Outcomes
 </ArchitectureNote2>
 
 Part 4 goes inside the framework: delegation provenance, goal integrity, continuous reassessment, adaptive trust policies, and the maturity model.
