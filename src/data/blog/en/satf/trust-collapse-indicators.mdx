@@ -1,5 +1,5 @@
 ---
-title: "Securing Agentic AI with Trust Collapse Indicators"
+title: "Securing Agentic AI with Trust Collapse Indicators (TCIs)"
 description: Trust Collapse Indicators (TCIs)- A New Lens for Securing Agentic AI Systems. Trust Collapse Indicators (TCIs) provide a forward-looking way to identify weakening trust relationships before they become incidents or full business impact across complex agentic and multi-agent systems.
 pubDatetime: 2026-08-20T04:58:53Z
 tags:
@@ -23,7 +23,7 @@ import ArchitectureNote2 from '@/components/ArchitectureNote2.astro';
 
 ![Trust Collapse Indicators (TCIs)](../../../../assets/images/posts/satf/tci-hero.png)
 
-<ArchitectureNote2 type="insight" title="Key Insight">
+<ArchitectureNote2 type="insight2" title="Key Insight">
  - Traditional cybersecurity asks: **What attack happened?**
 
  - Agentic security increasingly needs to ask: **What trust relationship is beginning to collapse?**
@@ -45,7 +45,7 @@ Most security programs are organized around:
 
 **Threats => Vulnerabilities => Controls => Incidents**
 
-<Callout type="intro" title="Agentic systems introduce"></Callout>
+<Callout type="intro" title="Agentic systems introduce">
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 <div class="rounded-xl border border-fuchsia-300/70  p-4 dark:border-fuchsia-500/40 dark:bg-fuchsia-950/25">
 
@@ -60,7 +60,7 @@ Most security programs are organized around:
       - Human approvals
       - Dynamic trust relationships
 </div></div>
-
+</Callout>
 
 The same attack technique can produce dramatically different outcomes.
 
@@ -78,15 +78,16 @@ The attack is identical.
 
 **The outcome is different.**
 
-> The missing variable is **trust**.
-
+<Callout type="tip" title="Trust">
+ The missing variable is **trust**.
+</Callout>
 ---
 
 ## The Real Problem: Trust Decays
 
 Every agentic system is built upon layers of assumed and delegated trust.
 
-<ArchitectureNote type="info" title="Trust Is Assumed and Delegated">
+<ArchitectureNote2 type="info" title="Trust Is Assumed and Delegated">
       - User trusts Agent 
       - Agent trusts Context
       - Agent trusts Memory
@@ -94,7 +95,7 @@ Every agentic system is built upon layers of assumed and delegated trust.
       - Tools trust Credentials
       - Agents trust Other Agents
       - Humans trust Recommendations
-</ArchitectureNote>
+</ArchitectureNote2>
 
 At deployment time, these assumptions may be valid.
 
@@ -126,7 +127,7 @@ At deployment time, these assumptions may be valid.
 </div></div>
 
 ### Result in
-<Callout type="warning" title="">
+<Callout type="warning" title="Result">
             Trust rarely fails all at once.
        
                         ⬇
@@ -140,7 +141,7 @@ At deployment time, these assumptions may be valid.
 
 ### The Core Premise
 
-<Callout type="intro" title="">
+<Callout type="intro" title="TCI Core Premise">
  - Trust is not binary.
 
  - Trust is established, inherited, delegated, expanded, reinforced, weakened, and sometimes collapsed.
@@ -156,7 +157,7 @@ A **Trust Collapse Indicator (TCI)** is an observable, forward-looking signal th
 
 Unlike threats, vulnerabilities, or incidents, TCIs are intended to identify emerging trust instability before significant operational, security, or business consequences occur.
 
-<Callout type="intro" title="">
+<Callout type="intro" title="TCI">
  A TCI does not necessarily mean that an incident has already occurred.
 </Callout>
 Instead, it highlights that one or more trust assumptions are becoming increasingly unreliable and that intervention may be required before the system crosses into full trust collapse.
