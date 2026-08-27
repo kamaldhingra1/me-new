@@ -1,5 +1,5 @@
 export const SITE = {
-  website: "https://astro.kamaldhingra.com",
+  website: "https://www.kamaldhingra.com",
   aseUrl:"https://ase.kamaldhingra.com",
   author: "Kamal Dhingra",
   profile: process.env.PUBLIC_SOCIAL_LINKEDIN ?? "", // set in .env
