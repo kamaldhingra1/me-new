@@ -145,8 +145,8 @@ const isActive = (path: string) => {
           {
             SITE.showArchives && (
               <a
-                // href={locale === "es" ? "/es/archives" : "/archives"}
-                href={`https://ase.${Astro.site?.host}`}
+    
+                href={SITE.aseUrl} target="_blank"
                 class:list={[
                   "mobile-nav-link",
                   { active: isActive("/archives") },
