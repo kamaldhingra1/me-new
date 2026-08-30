@@ -18,9 +18,9 @@ export const SITE = {
   showCoverImages: false, // show cover images (OG) in post cards (requires pnpm build in dev mode)
   indexPostsGrid: false, // show recent/featured posts in grid layout on the home page (like /posts page)
   heroTerminalPrompt: {
-    prefix: "~", // highlighted part on the left
-    path: "/ready", // central prompt text
-    suffix: "$", // terminal symbol on the right
+    prefix: "", // highlighted part on the left
+    path: "Try ASE", // central prompt text
+    suffix: "↗", // terminal symbol on the right
   },
   backdropEffects: {
     cursorGlow: true, // cursor tracking with soft halo
