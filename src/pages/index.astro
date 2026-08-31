@@ -45,7 +45,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !("featured" in data && dat
     <div class="flex justify-end w-full">
   <!-- Terminal prompt badge -->
           <div
-            class="mb-3 inline-flex items-center gap-2 rounded-full border border-border/40 bg-muted/20 px-3.5 py-1.5 font-sans text-xs sm:text-sm whitespace-nowrap max-w-max"
+            class="mb-3 inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-muted/20 px-3.5 py-1.5 font-sans text-xs sm:text-sm whitespace-nowrap max-w-max"
             style="font-weight: 500; font-stretch: 125%;"
           >
           <span class="relative flex h-2 w-2">
@@ -55,7 +55,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !("featured" in data && dat
             <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"
             ></span>
           </span>
-            <span class="text-accent">{SITE.heroTerminalPrompt.prefix}</span>
+            <!-- <span class="text-accent">{SITE.heroTerminalPrompt.prefix}</span> -->
             <a href={SITE.aseUrl} target="_blank" title="Try Agentic Security Explorer (ASE)">
             {SITE.heroTerminalPrompt.path}
             <span class="opacity-90">{SITE.heroTerminalPrompt.suffix}</span></a>
