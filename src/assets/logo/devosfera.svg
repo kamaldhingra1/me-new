@@ -5,7 +5,7 @@
     <text class="logo-text-left" style="fill: rgb(51, 51, 51); font-family: var(--font-cascadia-code), 'Cascadia Code', monospace; font-size: 150px; font-weight: 600; white-space: pre;" x="0" y="176.957">Kamal</text>
     
     <!-- Center Icon -->
-    <text class="logo-sphere" style="fill: rgb(167, 90, 90); font-family: var(--font-cascadia-code), 'Cascadia Code', monospace; font-size: 150px; font-weight: 600; letter-spacing: -10px; paint-order: stroke; white-space: pre;" x="430" y="176.957">· </text>
+    <text class="logo-sphere" style="fill: rgb(167, 90, 90); font-family: var(--font-cascadia-code), 'Cascadia Code', monospace; font-size: 180px; font-weight: 600; letter-spacing: -10px; paint-order: stroke; white-space: pre;" x="440" y="176.957">· </text>
     
     <!-- Last Name -->
     <text class="logo-text-right" style="fill: rgb(51, 51, 51); font-family: var(--font-cascadia-code), 'Cascadia Code', monospace; font-size: 150px; font-weight: 600; white-space: pre;">
