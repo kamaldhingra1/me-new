@@ -19,8 +19,8 @@ export const SITE = {
   indexPostsGrid: false, // show recent/featured posts in grid layout on the home page (like /posts page)
   heroTerminalPrompt: {
     prefix: "", // highlighted part on the left
-    path: "Try ASE", // central prompt text
-    suffix: "↗", // terminal symbol on the right
+    path: "Agentic Security Explorer(ASE)", // central prompt text
+    suffix: "↗", // terminal symbol on the right 
   },
   backdropEffects: {
     cursorGlow: true, // cursor tracking with soft halo
