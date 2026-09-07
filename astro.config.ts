@@ -18,6 +18,8 @@ export default defineConfig({
   redirects: {
     '/posts/satf': '/posts',
     '/posts/satf/secure-agent-trust-framework-part4': '/posts/satf/part-4-inside-satf' ,
+    '/posts/satf/secure-agent-trust-framework-part3': '/posts/satf/part-3-inside-satf' ,
+    '/posts/satf/secure-agent-trust-framework-part1': '/posts/satf/part-1-inside-satf' ,
     },
   i18n: {
     defaultLocale: "en",
