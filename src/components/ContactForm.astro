@@ -61,61 +61,77 @@
   bottom: 24px;
   z-index: 1000;
 
-  border: 2px solid rgba(124, 173, 255, 0.5);
-  border-radius: 999px;
+  /* Modern Soft Rectangle Shape */
+  border-radius: 12px;  /* Smooth, premium soft corners */
+  padding: 14px 26px;   /* Balanced, comfortable click target */
+  border: none;         /* Removed border to let the vibrant color pop */
 
-  padding: 12px 22px;
+  /* Vibrant Color Base (Electric Indigo Gradient) */
+  background: linear-gradient(135deg, #4f46e5, #3b82f6); 
+  color: #ffffff;       /* High contrast white text */
 
-  background: rgba(124, 173, 255, 0.1); 
-  background: inherit;
-  color: #1158d1; 
-
+  /* Typography & Layout */
+  font-family: sans-serif;
+  font-size: 16px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
 
-  transition: all 0.25s ease;
+  /* Smooth Glow & Elevation */
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  
+  /* Animation */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-fab:hover {
-  background: rgba(124, 173, 255, 0.2);
-  box-shadow: 0 0 18px rgba(124, 173, 255, 0.3);
-  transform: translateY(-2px);
-
-    
-    hover:shadow-xl hover:shadow-accent/20
-   
+  /* Vibrant Glow Hover State */
+  background: linear-gradient(135deg, #4338ca, #2563eb); /* Slightly deeper gradient */
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);        /* Intensified glow effect */
+  transform: translateY(-3px);                          /* Lifts up slightly more */
 }
 
-/* Contact Panel */
+.contact-fab:active {
+  transform: translateY(-1px);                          /* Mimics a physical press */
+  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.4);
+}
+
+
+ /* Contact Panel */
 .contact-panel {
   position: fixed;
   right: 24px;
-  bottom: 90px;
+  bottom: 96px; /* Adjusted slightly to clear the taller vibrant FAB */
   z-index: 1000;
 
   width: 360px;
   max-width: calc(100vw - 32px);
 
-  background: inherit;
-  backdrop-filter: blur(12px);
+  /* FIX: Changed 'inherit' to a frosted glass background so text is readable */
+  background: rgba(15, 23, 42, 0.85); /* Premium dark slate with transparency */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); /* Safari support */
 
-  border: 1px solid #7cadff;
+  /* Cohesive Soft Rect Border & Radius */
+  border: 1px solid rgba(124, 173, 255, 0.3);
   border-radius: 16px;
 
-  padding: 18px;
+  padding: 24px; /* Increased for better breathing room */
 
+  /* Balanced Shadow Mix */
   box-shadow:
-    0 0 20px rgba(124, 173, 255, 0.15),
-    0 0 50px rgba(124, 173, 255, 0.08);
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(124, 173, 255, 0.1);
 
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
 
+  /* Ultra Smooth Custom Timing Function */
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0.25s ease;
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Open State */
@@ -129,13 +145,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .contact-header h3 {
   margin: 0;
+  font-family: sans-serif;
   color: #7cadff;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .close-btn {
@@ -143,17 +161,23 @@
   border: none;
   color: #7cadff;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  padding: 4px;
+  line-height: 1;
+  transition: opacity 0.2s ease;
 }
 
 .close-btn:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .contact-panel label {
   display: block;
   margin-bottom: 6px;
+  font-family: sans-serif;
   font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0; /* Crisp light-gray label text */
 }
 
 .contact-panel input,
@@ -161,45 +185,65 @@
   width: 100%;
   box-sizing: border-box;
 
-  padding: 10px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
 
-  border: 1px solid rgba(124, 173, 255, 0.3);
-  border-radius: 8px;
+  /* Sleek Minimalist Inputs */
+  border: 1px solid rgba(124, 173, 255, 0.25);
+  border-radius: 10px; /* Matching soft rect vibe */
 
-  background: transparent;
-  color: inherit;
+  background: rgba(255, 255, 255, 0.03); 
+  color: #ffffff; /* Explicitly set white text for input data */
+  font-family: sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
 .contact-panel input:focus,
 .contact-panel textarea:focus {
   outline: none;
-  border-color: #7cadff;
-  box-shadow: 0 0 10px rgba(124, 173, 255, 0.2);
+  border-color: #3b82f6; /* Glow matches the vibrant FAB button */
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
 }
 
+/* Submit Button - Pairs with Vibrant FAB */
 .submit-btn {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
 
-  border: 1px solid #7cadff;
+  border: none;
   border-radius: 10px;
 
-  background: rgba(124, 173, 255, 0.1);
-  color: #7cadff;
+  /* Matches the vibrant gradient theme of the main button */
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: #ffffff;
+  font-family: sans-serif;
   font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.3px;
 
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  transition: all 0.2s ease;
 }
 
 .submit-btn:hover {
-  background: rgba(124, 173, 255, 0.2);
+  background: linear-gradient(135deg, #4338ca, #2563eb);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
 }
 
 #form-status {
-  margin-top: 12px;
+  margin-top: 14px;
   text-align: center;
+  font-family: sans-serif;
   font-weight: 600;
+  color: #34d399; /* Green status for successful sends */
 }
 
 /* Mobile */
@@ -207,7 +251,9 @@
   .contact-panel {
     right: 16px;
     left: 16px;
+    bottom: 84px; /* Ensure space above mobile FAB */
     width: auto;
+    padding: 20px;
   }
 
   .contact-fab {
@@ -215,6 +261,7 @@
     bottom: 16px;
   }
 }
+
 </style>
 
 
