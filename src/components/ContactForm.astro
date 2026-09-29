@@ -40,7 +40,7 @@
       <textarea
         id="message"
         name="message"
-        rows="4"
+        rows="3"
         required
       ></textarea>
     </div>
@@ -61,13 +61,14 @@
   bottom: 24px;
   z-index: 1000;
 
-  border: 1px solid rgba(124, 173, 255, 0.5);
+  border: 2px solid rgba(124, 173, 255, 0.5);
   border-radius: 999px;
 
   padding: 12px 22px;
 
-  background: rgba(124, 173, 255, 0.1);
-  color: #7cadff;
+  background: rgba(124, 173, 255, 0.1); 
+  background: inherit;
+  color: #1158d1; 
 
   font-weight: 700;
   cursor: pointer;
@@ -79,6 +80,10 @@
   background: rgba(124, 173, 255, 0.2);
   box-shadow: 0 0 18px rgba(124, 173, 255, 0.3);
   transform: translateY(-2px);
+
+    
+    hover:shadow-xl hover:shadow-accent/20
+   
 }
 
 /* Contact Panel */

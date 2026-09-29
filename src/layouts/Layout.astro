@@ -340,12 +340,8 @@ const showGrain = SITE.backdropEffects.grain;
     <script src="../scripts/theme.ts"></script>
     <!-- Smart prefetch for slow connections -->
     <script src="../scripts/smart-prefetch.ts"></script>
-    <ContactForm />
-    <body>
-  <slot />
-
+    
   <ContactForm />
-
   <script is:inline>
   document.addEventListener('click', (e) => {
     const target = e.target;
@@ -365,8 +361,6 @@ const showGrain = SITE.backdropEffects.grain;
     }
   });
 </script>
-
-</body>
   </body>
 </html>
 
