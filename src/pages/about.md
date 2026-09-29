@@ -4,6 +4,7 @@ title: "About"
 description: "Cyber Security Architecture Executive, AI Security Leader"
 ---
 
+
 Welcome to my AI Security Corner.
 
 ## Who am I?
@@ -44,4 +45,19 @@ Built an interactive system map to visualize threats, risks and mitigations in M
 
 **Safe and Secure AI** was born as a space to document my journey in AI Security and Securing AI, share what I learn, and connect with people who share the same passions. Here you will find posts about AI Security Architecture, Cyber,Agentic Security and the occasional random reflections "Beyond".
 
-
+<script>
+  async function onSubmit(ev) {
+  ev.preventDefault();
+  await fetch('https://api.postcatch.io/submit/69828e22-aa61-4ef9-b1db-8f553ee0670d', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: ev.target.name.value,
+      email: ev.target.email.value,
+      message: ev.target.message.value
+    })
+  });
+}
+</script>

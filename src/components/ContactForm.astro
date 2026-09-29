@@ -1,0 +1,308 @@
+---
+---
+<!-- Floating Toggle Button -->
+<button
+  id="contact-toggle-btn"
+  class="contact-fab"
+  aria-label="Contact Me"
+>
+  Contact Me
+</button>
+
+<!-- Contact Panel -->
+<div id="contact-container" class="contact-panel">
+  <div class="contact-header">
+    <h3>Contact Me</h3>
+
+    <button
+      id="contact-close-btn"
+      type="button"
+      class="close-btn"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+  </div>
+
+  <form id="contact-form">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Send Message
+    </button>
+  </form>
+
+  <div id="form-status"></div>
+</div>
+
+<style>
+/* Floating button */
+.contact-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+
+  border: 1px solid rgba(124, 173, 255, 0.5);
+  border-radius: 999px;
+
+  padding: 12px 22px;
+
+  background: rgba(124, 173, 255, 0.1);
+  color: #7cadff;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.contact-fab:hover {
+  background: rgba(124, 173, 255, 0.2);
+  box-shadow: 0 0 18px rgba(124, 173, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Contact Panel */
+.contact-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 90px;
+  z-index: 1000;
+
+  width: 360px;
+  max-width: calc(100vw - 32px);
+
+  background: inherit;
+  backdrop-filter: blur(12px);
+
+  border: 1px solid #7cadff;
+  border-radius: 16px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 0 20px rgba(124, 173, 255, 0.15),
+    0 0 50px rgba(124, 173, 255, 0.08);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+/* Open State */
+.contact-panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.contact-header h3 {
+  margin: 0;
+  color: #7cadff;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #7cadff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.close-btn:hover {
+  opacity: 0.8;
+}
+
+.contact-panel label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+}
+
+.contact-panel input,
+.contact-panel textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px;
+  margin-bottom: 12px;
+
+  border: 1px solid rgba(124, 173, 255, 0.3);
+  border-radius: 8px;
+
+  background: transparent;
+  color: inherit;
+}
+
+.contact-panel input:focus,
+.contact-panel textarea:focus {
+  outline: none;
+  border-color: #7cadff;
+  box-shadow: 0 0 10px rgba(124, 173, 255, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #7cadff;
+  border-radius: 10px;
+
+  background: rgba(124, 173, 255, 0.1);
+  color: #7cadff;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: rgba(124, 173, 255, 0.2);
+}
+
+#form-status {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .contact-panel {
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+
+  .contact-fab {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+</style>
+
+
+<script>
+document.addEventListener("astro:page-load", initContactForm);
+document.addEventListener("DOMContentLoaded", initContactForm);
+
+function initContactForm() {
+/*   const toggleBtn = document.getElementById(
+    "contact-toggle-btn"
+  ) as HTMLButtonElement | null;
+
+  const closeBtn = document.getElementById(
+    "contact-close-btn"
+  ) as HTMLButtonElement | null; */
+
+  const contactPanel = document.getElementById(
+    "contact-container"
+  ) as HTMLDivElement | null;
+
+  const form = document.getElementById(
+    "contact-form"
+  ) as HTMLFormElement | null;
+
+  const status = document.getElementById(
+    "form-status"
+  ) as HTMLDivElement | null;
+
+  // Prevent duplicate initialization after Astro navigation
+  if (!contactPanel || contactPanel.dataset.initialized) {
+    return;
+  }
+
+  contactPanel.dataset.initialized = "true";
+
+  const openPanel = () => {
+    contactPanel.classList.add("open");
+  };
+
+  const closePanel = () => {
+    contactPanel.classList.remove("open");
+  };
+
+  // toggleBtn?.addEventListener("click", openPanel);
+  // closeBtn?.addEventListener("click", closePanel);
+
+  if (!form || !status) {
+    return;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://api.postcatch.io/submit/6",
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      status.style.display = "block";
+      status.style.color = "#4ade80";
+      status.textContent =
+        "✓ Thank you! Your message has been sent.";
+
+      form.reset();
+
+      setTimeout(() => {
+        closePanel();
+        status.textContent = "";
+        status.style.display = "none";
+      }, 1800);
+
+    } catch (error) {
+      console.error(error);
+
+      status.style.display = "block";
+      status.style.color = "#ef4444";
+      status.textContent =
+        "Something went wrong. Please try again.";
+    }
+  });
+}
+
+</script>

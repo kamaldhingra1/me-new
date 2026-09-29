@@ -14,6 +14,7 @@ import { SOCIALS } from "@/constants";
 import IntroAudio from "@/components/IntroAudio.astro";
 import { useTranslations } from "@/i18n/utils";
 
+
 const locale = Astro.currentLocale || "en";
 const t = useTranslations(locale as any);
 const prefix = locale === "es" ? "/es" : "";
@@ -200,7 +201,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !("featured" in data && dat
         </section>
       )
     }
+
   </main>
+
   <Footer />
 </Layout>
 
@@ -251,4 +254,5 @@ const recentPosts = sortedPosts.filter(({ data }) => !("featured" in data && dat
       });
     });
   });
+
 </script>

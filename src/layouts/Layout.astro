@@ -7,6 +7,7 @@ import SearchModal from "@/components/SearchModal.astro";
 import ShortcutsModal from "@/components/ShortcutsModal.astro";
 import { useTranslations } from "@/i18n/utils";
 import "@/styles/global.css";
+import ContactForm from "@/components/ContactForm.astro";
 
 type Props = {
   title?: string;
@@ -339,6 +340,33 @@ const showGrain = SITE.backdropEffects.grain;
     <script src="../scripts/theme.ts"></script>
     <!-- Smart prefetch for slow connections -->
     <script src="../scripts/smart-prefetch.ts"></script>
+    <ContactForm />
+    <body>
+  <slot />
+
+  <ContactForm />
+
+  <script is:inline>
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    const panel = document.getElementById('contact-container');
+
+    if (!panel) return;
+
+    if (target.id === 'contact-toggle-btn') {
+      panel.classList.add('open');
+    }
+
+    if (target.id === 'contact-close-btn') {
+      panel.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
   </body>
 </html>
 
